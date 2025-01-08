@@ -1,0 +1,9 @@
+
+def mensaje():
+    print(" ")
+    print("Esto es un mensaje")
+    print(" ")
+
+mensaje()
+print("blabla")
+mensaje()
