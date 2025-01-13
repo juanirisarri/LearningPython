@@ -1,0 +1,165 @@
+
+
+# Python es 100% orientado a objetos
+# Todas las variables son objectos
+# Las clases predefinidas son: 'int', 'float', 'str', ...  
+
+
+
+
+
+LISTS: 
+
+ # Se definen con [] :: miLista = ["ind0", "Pos2", True, 1]
+ # Pueden mezclar diferentes tipos de variables (int, str, ...)
+ # La posición '1' van con índice '0'
+
+ # .append() :: Añade elemento al final
+ # .extend() :: Añade varios elementos al final (concatena 2 listas)
+ # .pop()    :: Elimina elemento al final
+ # .insert() :: Inserta elemento en posición indicado. Desplaza los demás elementos
+ # .index()  :: Devuelve el índice del elemento indicado
+ # .remove() :: Elimina el elemento indicado
+
+ # "elem" in miLista :: devuelve 'True' si "elem" pertenece a 'miLista'. Si no, devuelve 'False'
+
+ # miLista3 = miLista1 + miLista2 :: une las dos listas
+ # miLista *3 :: Crea una nueva lista repitiendo miLista 3 veces
+
+ # miLista = list(miTupla)  :: Crea una lista con el contenido de la tupla
+
+
+
+
+
+
+TUPLES:
+
+ # Se definen con () :: miTupla = ("Juan", 13, 1, True,13)
+ # Se puede prescindir de los paréntesis para definir la tupla (no recomendado)
+ # El primer índice es el 0 (Posición 1)
+
+ # Son listas inmutables (No se pueden modificar)  
+ # Son más rápidas de computar
+ # Pueden utilizarse como claves en un diccionario (las listas no)
+
+ # .count() :: cuenta el número de veces que aparece el elemento indicado
+ # .index() :: Devuelve el índice del elemento indicado
+
+ # len(miTupla)   :: devuelve el número de elememtos 
+
+ # elem in miTupla :: Da True si elem pertenece a miTupla. Si no da False
+
+ # miLista = list(miTupla)  :: Crea una lista con el contenido de la tupla
+ # miTupla = tuple(miLista) :: Crea una tupla con el contenido de la lista
+
+ # (a,b,c,d,e) = miTupla :: Desempaqueta la tupla en las variables 
+
+
+
+
+
+
+DICTIONARIES:
+
+ # Se definen con {} y con clave:valor ::  miDiccionario = { "Alemania":"Berlin", "Francia":"Paris", 1.52:2}
+ # Los elementos no están ordenados. No hay índices
+
+ # El valor y la clave puede ser de cualquier tipo (int, float, str, ...)
+
+ # Añadir nuevos elementos (sobreescribe si la clave ya existía) ::  miDiccionario[Clave] = valor
+
+ # Eliminar elementos :: del miDiccionario[Clave]
+
+ # .keys()   :: Devuelve las claves
+ # .values() :: Devuelve los valores
+ # len(miDiccionario) :: Devuelve el tamaño
+
+
+
+
+
+
+
+IF:
+
+ # mayor que :: >
+ # menor que :: <
+ # igual que :: ==
+
+ # or  :: or
+ # and :: and
+
+ # in :: revisa si una variable pertenece a un array
+
+
+Ejemplos:
+
+------------------------------------------------
+
+if 0 < edad_usuario < 18 or edad_usuario >100:
+    print("No puedes pasar")
+
+    if edad_usuario > 100:
+        print("Es imposible que seas tan mayor")
+
+elif edad_usuario < 0:
+    print("Edades negativas no suena muy normal")
+
+else:
+    print("Puedes pasar")
+
+------------------------------------------------
+
+if 1<2<3<4==4>1:                         # Se pueden concatenar condiciones
+    print("Todo funciona bien")
+
+------------------------------------------------
+
+if asignatura in optativas:
+    print("Has elegido: " + asignatura)
+else:
+    print("Esa asignatura no es válida")
+
+
+
+
+
+
+
+
+
+
+
+FOR:
+
+# for VARIABLE in ELEMENT:
+   		   ELEMENT puede ser tupla, lista, cadena de texto, ...
+
+# for j in range(5): 		range es un tipo de array muy usado en bucles for 
+       j va desde 0 hasta 4
+
+# for j in range(5,10):		j va de 5 hasta 9
+
+# for j in range(5,10,2):	j va de 5 hasta 9 saltando de 2 en 2 (5 -> 7 -> 9)
+
+
+
+
+
+Ejemplos:
+
+------------------------------------------------
+
+for i in [1,"Hola",True]:
+    print(i)
+
+------------------------------------------------
+
+for i in "elIndiceRecorreEsteArray":
+    print(i, end=" ")	# Se especifica el tipo de end
+
+------------------------------------------------
+
+
+
