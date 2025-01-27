@@ -96,7 +96,6 @@ IF:
 Ejemplos:
 
 ------------------------------------------------
-
 if 0 < edad_usuario < 18 or edad_usuario >100:
     print("No puedes pasar")
 
@@ -108,14 +107,10 @@ elif edad_usuario < 0:
 
 else:
     print("Puedes pasar")
-
 ------------------------------------------------
-
 if 1<2<3<4==4>1:                         # Se pueden concatenar condiciones
     print("Todo funciona bien")
-
 ------------------------------------------------
-
 if asignatura in optativas:
     print("Has elegido: " + asignatura)
 else:
@@ -148,16 +143,57 @@ FOR:
 Ejemplos:
 
 ------------------------------------------------
-
 for i in [1,"Hola",True]:
     print(i)
-
 ------------------------------------------------
-
 for i in "elIndiceRecorreEsteArray":
     print(i, end=" ")	# Se especifica el tipo de end
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+WHILE:
+
+ # while CONDITION == true :
+
+
+
+
+
+Ejemplos:
+ 
+------------------------------------------------
+i = 1;
+while i<=10:
+    print("Ejecución " + str(i))
+    i = i + 1
+------------------------------------------------
+
+while i == 10 or j == 2 :
 
 ------------------------------------------------
+
+while i >= 5 and j <= 3 :
+
+------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 
