@@ -137,9 +137,9 @@ FOR:
    		   ELEMENT puede ser tupla, lista, cadena de texto, ...
 
  # for j in range(5): 		range es un tipo de array muy usado en bucles for 
-       j va desde 0 hasta 4
+       				j va desde 0 hasta 4
 
- # for j in range(5,10):		j va de 5 hasta 9
+ # for j in range(5,10):	j va de 5 hasta 9
 
  # for j in range(5,10,2):	j va de 5 hasta 9 saltando de 2 en 2 (5 -> 7 -> 9)
 
