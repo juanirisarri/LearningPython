@@ -139,7 +139,6 @@ FOR:
  # for j in range(5,10,2):	j va de 5 hasta 9 saltando de 2 en 2 (5 -> 7 -> 9)
 
 
-
 Ejemplos:
 
 ------------------------------------------------
@@ -157,6 +156,26 @@ for i in "elIndiceRecorreEsteArray":
 
 
 
+CONTINUE: (dentro de un bucle)
+
+ # hace que no se ejecute lo que tiene debajo y se vuelva al bucle for para seguir con la siguiente iteración
+
+
+Ejemplo:
+
+------------------------------------------------
+nombre = "Juan Irisarri"
+contador_caracteres = 0;
+
+for letra in nombre:
+
+    if letra == " ":            # Para que los espacios en blanco no se cuenten
+        continue
+
+    contador_caracteres = contador_caracteres + 1
+------------------------------------------------
+
+
 
 
 
@@ -165,9 +184,6 @@ for i in "elIndiceRecorreEsteArray":
 WHILE:
 
  # while CONDITION == true :
-
-
-
 
 
 Ejemplos:
@@ -186,6 +202,33 @@ while i == 10 or j == 2 :
 while i >= 5 and j <= 3 :
 
 ------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+GENERATORS:
+ # Son como funciones pero se usa 'yield' en lugar de 'return'
+ # Devuelven un objeto iterable del que se puede extraer los valores de uno en uno usando "next(objetoIterable)"
+ # Ver los scripts para ver ejemplos y funcionamiento
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
