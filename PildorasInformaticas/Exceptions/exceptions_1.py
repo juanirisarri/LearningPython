@@ -2,8 +2,9 @@
 # Cuando hay un error en tiempo de ejecución se cae el programa en esa línea y no se ejecuta el código que está a continuación 
 # Para evitar que se deje de ejecutar el código entero se pueden controlar las excepciones 
 
-# ZeroDivisionError
-# valueError
+# ZeroDivisionError :: división por cero
+# TypeError         :: tipo no válido para la función
+# NameError         :: variable no definida
 
 print(" ")
 print("--------------------------")
