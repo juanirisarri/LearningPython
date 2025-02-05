@@ -194,13 +194,11 @@ while i<=10:
     print("Ejecución " + str(i))
     i = i + 1
 ------------------------------------------------
-
 while i == 10 or j == 2 :
-
+    (code)
 ------------------------------------------------
-
 while i >= 5 and j <= 3 :
-
+    (code)
 ------------------------------------------------
 
 
@@ -232,12 +230,31 @@ GENERATORS:
 
 EXCEPTIONS:
 
+ # Cuando hay un error en tiempo de ejecución se cae el programa en esa línea y no se ejecuta el código que está a continuación 
+ # Para evitar que se deje de ejecutar el código entero se pueden controlar las excepciones 
+ # # Con 'raise' se pueden lanzar nuestras propias excepciones 
+
+ # Excepciones que vienen por defecto en Python:
+   # ZeroDivisionError :: división por cero
+   # TypeError         :: tipo no válido para la función
+   # NameError         :: variable no definida
+
+ # Se pueden crear excepciones como por ejemplo 'negativeAge' con clases 
 
 
+Ejemplos:
 
-
-
-
-
-
+------------------------------------------------
+ try:
+    division = n1/n2
+ except ZeroDivisionError:
+    print("Error. No se puede dividir entre cero")
+ except TypeError:
+    print("Error. No se puede dividir. Se debe introducir un número")
+ except:
+    print("Ha ocurrido un error")       # Cualquier otra excepción que no sea 'ZeroDivisionError' o 'TypeError'
+------------------------------------------------
+if edad<0:
+        raise ValueError("La edad debe ser positiva")       # Puedes poner ValueError o la excepción que consideres.
+------------------------------------------------
 

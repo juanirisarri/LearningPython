@@ -16,6 +16,8 @@ def division(n1,n2):
         return "Error. No se puede dividir entre cero"
     except TypeError:
         return "Error. No se puede dividir. Se debe introducir un número"
+    except:
+        return "Ha ocurrido un error"       # Cualquier excepción que no sea 'ZeroDivisionError' o 'TypeError'
 
 
 try:
