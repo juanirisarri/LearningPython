@@ -8,6 +8,9 @@
 
 
 
+
+
+
 LISTS: 
 
  # Se definen con [] :: miLista = ["ind0", "Pos2", True, 1]
@@ -27,6 +30,9 @@ LISTS:
  # miLista *3 :: Crea una nueva lista repitiendo miLista 3 veces
 
  # miLista = list(miTupla)  :: Crea una lista con el contenido de la tupla
+
+
+
 
 
 
@@ -60,6 +66,9 @@ TUPLES:
 
 
 
+
+
+
 DICTIONARIES:
 
  # Se definen con {} y con clave:valor ::  miDiccionario = { "Alemania":"Berlin", "Francia":"Paris", 1.52:2}
@@ -74,6 +83,9 @@ DICTIONARIES:
  # .keys()   :: Devuelve las claves
  # .values() :: Devuelve los valores
  # len(miDiccionario) :: Devuelve el tamaño
+
+
+
 
 
 
@@ -126,6 +138,8 @@ else:
 
 
 
+
+
 FOR:
 
  # for VARIABLE in ELEMENT:
@@ -156,6 +170,9 @@ for i in "elIndiceRecorreEsteArray":
 
 
 
+
+
+
 CONTINUE: (dentro de un bucle)
 
  # hace que no se ejecute lo que tiene debajo y se vuelva al bucle for para seguir con la siguiente iteración
@@ -174,6 +191,8 @@ for letra in nombre:
 
     contador_caracteres = contador_caracteres + 1
 ------------------------------------------------
+
+
 
 
 
@@ -257,4 +276,56 @@ Ejemplos:
 if edad<0:
         raise ValueError("La edad debe ser positiva")       # Puedes poner ValueError o la excepción que consideres.
 ------------------------------------------------
+
+
+
+
+
+
+
+
+OBJECT ORIENTED PROGRAMING (OOP):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
