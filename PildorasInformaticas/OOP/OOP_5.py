@@ -1,11 +1,11 @@
 
 # Conceptos vistos en de este ejemplo: 
-#       - Herencia: super y sub clase
-#       - Sobreescritura de métodos
+#       - Herencia múltiple: Varias superclases
+#       - uso de 'super'
 
 
-class Vehiculos():   # Esta es la super clase (superclass) de la cual hereda moto
 
+class Vehiculos():   
     def __init__(self,marca,modelo):
         self.marca = marca
         self.modelo = modelo
@@ -35,13 +35,20 @@ class Vehiculos():   # Esta es la super clase (superclass) de la cual hereda mot
 
 
 
+class VElectricos(): 
+
+    def __init__(self, bat):
+        self.autonomia = 100
+        self.bateria   = bat
+        
+
+    def cargarEnergia(self):
+        self.bateria = 100
+        
 
 
 
-
-
-
-class Moto(Vehiculos):  # Esta es una subclase (subclass) de Vehiculo (hereda de ella)
+class Moto(Vehiculos):  
                         # Hereda los constructores, los atributos y métodos de su superclase
                         # Puede sobreescribir los constructores, los atributos y los métodos de su superclase
                         # Puede definir sus propios constructores, atributos y métodos 
@@ -61,10 +68,21 @@ class Moto(Vehiculos):  # Esta es una subclase (subclass) de Vehiculo (hereda de
 
 
 
+class BiciElectrica(Moto, VElectricos):     # Hereda de dos superclases
+
+    def __init__(self, marca, modelo,bat):
+        super().__init__(marca, modelo)
+        self.autonomia = 100
+        self.bateria   = bat
 
 
+    def estado(self):       # Se sobreescribe para incluir la bateria
+        super().estado()
+        print("Bateria: ", self.bateria)
 
-
+        
+# Queda solucionado el problema. Ahora se puede crear un 
+# objeto BiciElectrica con marca, modelo y bateria
 
 
 
@@ -72,18 +90,28 @@ class Moto(Vehiculos):  # Esta es una subclase (subclass) de Vehiculo (hereda de
 #--------------------------------------------------------
 #--------------------------------------------------------
 
-
-
 print("\n")
-
-miMoto = Moto("Honda", "CBR")
-miMoto.estado()
+miBici = BiciElectrica("Orbea", "X1pro",76)        # No se inicia con un valor de bateria 
+miBici.estado()
 print("---------------------------------")
-miMoto.acelerar()
-miMoto.caballito()
-miMoto.estado()
-
+miBici.acelerar()
+miBici.caballito()
+miBici.estado()
+print("---------------------------------")
+miBici.cargarEnergia()
+miBici.estado()
 print("\n")
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,11 +1,10 @@
 
 # Conceptos vistos en de este ejemplo: 
-#       - Herencia: super y sub clase
-#       - Sobreescritura de métodos
+#       - Herencia múltiple: varias superclases
 
 
-class Vehiculos():   # Esta es la super clase (superclass) de la cual hereda moto
 
+class Vehiculos():   # Esta es una super clase (superclass) de la cual hereda moto
     def __init__(self,marca,modelo):
         self.marca = marca
         self.modelo = modelo
@@ -35,8 +34,16 @@ class Vehiculos():   # Esta es la super clase (superclass) de la cual hereda mot
 
 
 
+class VElectricos(): # Esta es una super clase (superclass) de la cual hereda bicicletaElectrica
 
+    def __init__(self, bat):
+        self.autonomia = 100
+        self.bateria   = bat
+        
 
+    def cargarEnergia(self):
+        self.bateria = 100
+        print("Bateria: ", self.bateria )
 
 
 
@@ -61,10 +68,9 @@ class Moto(Vehiculos):  # Esta es una subclase (subclass) de Vehiculo (hereda de
 
 
 
-
-
-
-
+class BiciElectrica(Moto, VElectricos):     # Hereda de dos superclases
+    pass                                                                                                                    
+# Ahora mismo hereda el constructor de la primera superclase solo (Moto). Se soluciona en OOP5.py
 
 
 
@@ -72,18 +78,33 @@ class Moto(Vehiculos):  # Esta es una subclase (subclass) de Vehiculo (hereda de
 #--------------------------------------------------------
 #--------------------------------------------------------
 
-
-
 print("\n")
-
-miMoto = Moto("Honda", "CBR")
-miMoto.estado()
+miBici = BiciElectrica("Orbea", "X1pro")        # No se inicia con un valor de bateria 
+miBici.estado()
 print("---------------------------------")
-miMoto.acelerar()
-miMoto.caballito()
-miMoto.estado()
-
+miBici.acelerar()
+miBici.caballito()
+miBici.estado()
+miBici.cargarEnergia()
 print("\n")
+
+
+print("---------------------------------")
+print("---------------------------------")
+print("\n")
+
+tuBici = BiciElectrica(76)                      # Esto da error
+print(tuBici.bateria)
+tuBici.cargarEnergia()
+print("\n")
+
+
+
+
+
+
+
+
 
 
 
