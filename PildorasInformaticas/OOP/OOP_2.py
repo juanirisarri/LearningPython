@@ -1,6 +1,6 @@
 
 # Conceptos vistos en de este ejemplo: 
-#       - Encapsulación: se pone '__' antes del nombre (atributos/métodos que solo se pueden modificar/llamar desde dentro de la clase)
+#       - Privatizar: se pone '__' antes del nombre (atributos/métodos que solo se pueden modificar/llamar desde dentro de la clase)
 #       - Constructor  :  def __init__(self,input_a,input_b):
 
 
@@ -43,7 +43,7 @@ class Coche():
         print("Ancho: " , self.anchoChasis)
 
 
-    def __checkeo_interno(self):                # Método encapsulado. Solo se le puede llamar desde dentro de la clase 
+    def __checkeo_interno(self):                # Método privado. Solo se le puede llamar desde dentro de la clase 
         print("Realizando checkeo interno")
 
         self.gasolina = "ok"

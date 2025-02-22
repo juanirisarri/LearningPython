@@ -1,7 +1,7 @@
 
 # Conceptos vistos en de este ejemplo: 
 #       - Herencia: super y sub clase
-#       - Sobreescritura de métodos
+#       - Sobreescritura de métodos, atributos, ... (override)
 
 
 class Vehiculos():   # Esta es la super clase (superclass) de la cual hereda moto

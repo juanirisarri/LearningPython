@@ -70,13 +70,13 @@ class Moto(Vehiculos):
 
 class BiciElectrica(Moto, VElectricos):     # Hereda de dos superclases
 
-    def __init__(self, marca, modelo,bat):
+    def __init__(self, marca, modelo,bat):      # Se sobreescribe el constructor para incluir la batería
         super().__init__(marca, modelo)
         self.autonomia = 100
         self.bateria   = bat
 
 
-    def estado(self):       # Se sobreescribe para incluir la bateria
+    def estado(self):       # Se sobreescribe para incluir el estado de la batería
         super().estado()
         print("Bateria: ", self.bateria)
 

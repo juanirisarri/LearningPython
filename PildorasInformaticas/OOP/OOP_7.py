@@ -22,7 +22,10 @@ class Camion():
 
 
 def desplazamiento(vehiculo):
-    vehiculo.desplaz()              # llama al desplaz en función del objeto que le entre
+    vehiculo.desplaz()              # llama a desplaz() en función del objeto que le entre
+
+
+
 
 
 # Fin de las clases

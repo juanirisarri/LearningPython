@@ -287,30 +287,43 @@ if edad<0:
 OBJECT ORIENTED PROGRAMING (OOP):
 
 
+ class Coche():
+
+	def __init__(self,input_a,input_b):    # Constructor  	
+
+	def arrancar(self,input_a,input_b):    # Método
+        	self.enMarcha = input_a  
+
+
+ # self :: Hace referencia al propio objeto
+
+ # Privatizar :: se pone '__' antes del nombre (atributos/métodos que solo se pueden modificar/llamar desde dentro de la clase)
+	Ej:: self.__ruedas = 4  		# Atributo privado (private)
+	Ej:: def __checkeo_interno(self):       # Método privado
 
 
 
+ # Inheritance::
+	
+	class Moto(Vehiculos):  # Esta es una subclase (subclass) de Vehiculo (hereda de ella). Vehiculo es la superclass
+                        	# Hereda los constructores, atributos y métodos de su superclase
+                        	# Puede sobreescribir los constructores, atributos y métodos de su superclase
+                        	# Puede definir sus propios constructores, atributos y métodos 
 
 
+ 				# Sobreescritura (override) de constructores, atributos y métodos :: Utilizar el mismo nombre que la clase padre
+				# Si una clase hereda de varias, solo hereda el constructor de la primera. Se soluciona sobreescribiendo el constructor (se recomienda usar 'super')
+				# super() :: Hace referencia al constructor/atributo/método de la clase padre
+
+					Ej:: super().__init__(a, b)	# Construcor de la clase padre
+					Ej:: super().estado()		# Método de la clase padre
 
 
+ # isinstance() : Comprobar si un objeto pertenece a una clase o no (pertenece a la suya y a las superclases)
+	Ej:: print( isinstance(miMoto, Vehiculos) )     # Devuelve True                            
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ # Polymorphism :: Cuando un método se define en varias clases y se llama con un objeto, se usa el método definido en la clase de dicho objeto
 
 
 
