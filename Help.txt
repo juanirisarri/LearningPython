@@ -333,6 +333,27 @@ OBJECT ORIENTED PROGRAMING (OOP):
 
 
 
+STRING METHODS:
+
+
+#   upper()       :: Convierte a mayus
+#   lower()       :: Convierte a minus
+#   capitalize()  :: Primera a mayus. Resto en minus
+
+#   count(str)    :: Cuenta cuantas veces aparece una cierta cadena un otra
+#   isdigit()     :: Devuelve 'True' si es digito
+#   isalnum()     :: Devuelve 'True' si es alfanumerico
+#   isalpha()     :: Devuelve 'True' si hay solo letras
+
+#   split()       :: Separa utilizando los espacios que haya (devuelve una lista)
+#   strip()       :: Borra los espacios sobrantes al ppio y final
+
+#   find(str)     :: Devuelve el primer índice de cierta cadena dentro de otra
+#   rfind(str)    :: Como find() pero empieza por el final
+
+#   replace(str_old, str_new)   :: Cambia una cadena por otra
+
+
 
 
 
