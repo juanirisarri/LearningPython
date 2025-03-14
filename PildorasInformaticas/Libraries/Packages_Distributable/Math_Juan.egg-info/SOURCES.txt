@@ -1,0 +1,8 @@
+setup.py
+Math_Juan.egg-info/PKG-INFO
+Math_Juan.egg-info/SOURCES.txt
+Math_Juan.egg-info/dependency_links.txt
+Math_Juan.egg-info/top_level.txt
+Math_package_Juan/Math_module_A.py
+Math_package_Juan/Math_module_B.py
+Math_package_Juan/__init__.py

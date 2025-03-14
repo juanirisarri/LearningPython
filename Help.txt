@@ -284,6 +284,8 @@ if edad<0:
 
 
 
+
+
 OBJECT ORIENTED PROGRAMING (OOP):
 
 
@@ -336,22 +338,94 @@ OBJECT ORIENTED PROGRAMING (OOP):
 STRING METHODS:
 
 
-#   upper()       :: Convierte a mayus
-#   lower()       :: Convierte a minus
-#   capitalize()  :: Primera a mayus. Resto en minus
+ #   upper()       :: Convierte a mayus
+ #   lower()       :: Convierte a minus
+ #   capitalize()  :: Primera a mayus. Resto en minus
 
-#   count(str)    :: Cuenta cuantas veces aparece una cierta cadena un otra
-#   isdigit()     :: Devuelve 'True' si es digito
-#   isalnum()     :: Devuelve 'True' si es alfanumerico
-#   isalpha()     :: Devuelve 'True' si hay solo letras
+ #   count(str)    :: Cuenta cuantas veces aparece una cierta cadena un otra
+ #   isdigit()     :: Devuelve 'True' si es digito
+ #   isalnum()     :: Devuelve 'True' si es alfanumerico
+ #   isalpha()     :: Devuelve 'True' si hay solo letras
 
-#   split()       :: Separa utilizando los espacios que haya (devuelve una lista)
-#   strip()       :: Borra los espacios sobrantes al ppio y final
+ #   split()       :: Separa utilizando los espacios que haya (devuelve una lista)
+ #   strip()       :: Borra los espacios sobrantes al ppio y final
 
-#   find(str)     :: Devuelve el primer índice de cierta cadena dentro de otra
-#   rfind(str)    :: Como find() pero empieza por el final
+ #   find(str)     :: Devuelve el primer índice de cierta cadena dentro de otra
+ #   rfind(str)    :: Como find() pero empieza por el final
 
-#   replace(str_old, str_new)   :: Cambia una cadena por otra
+ #   replace(str_old, str_new)   :: Cambia una cadena por otra
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MODULES, PACKAGES AND LIBRARIES:
+
+ Módulo:   Un solo archivo de Python (.py) que contiene código, como funciones, clases o variables.
+ Paquete:  Una carpeta que contiene uno o más módulos y un archivo especial __init__.py, lo que indica que esa carpeta es un paquete Python. (ese archivo está vacío)
+ Librería: Conjunto de módulos y paquetes relacionados que se distribuyen juntos para proporcionar ciertas funcionalidades (como NumPy, Requests, etc.).
+
+
+
+ Para importar un módulo:
+	import Math_module		->   Math_module.sumar(n1,n2)
+	import Math_module as MM	->   MM.sumar(n1,n2)
+	from Math_module import *       ->   sumar(n1,n2)		[puedo sustituir el * por la función que deseo importar. Con el * se importan todas]
+
+	¡¡OJO!! : MM. se debe poner para crear objetos de una clase. Para usar los métodos de esa clase sobre ese objeto no se pone MM.	
+	¡¡OJO!!: Python busca al módulo en el directorio en el que está el script que lo quiere importar. Si no lo encuentra pasa a buscarlo al 'syspath'
+
+
+
+ Para importar un paquete:
+
+	from Libraries.Packages.Math_package.Math_module_A import *  			[hay que poner el path desde el directorio del script que lo quiere importar]
+	from Libraries.Packages.Math_package import Math_module_A as MMA
+	
+		- Libraries, Packages, Math_package son carpetas
+		- Math_module_A es un módulo (archivo .py)
+
+	
+ Paquetes distribuibles:
+
+	- Se pueden importar sin tener que añadir el path:
+		from packageName import moduleName as modName 
+		from packageName.moduleName import *
+
+	- Requieren instalación 
+	- Para instalar un paquete hay que estar en el directorio donde esta el archivo .tar.gz y ejecutar en la consola "pip3 install math_juan-1.0.tar.gz"  [math_juan-1.0.tar.gz es el nombre del archivo]
+	- Para desinstalar: "pip3 uninstall distributionName"   [no importa el directorio]
+	
+	- Para crear uno: hay que crear un archivo setup.py (rellenarlo bien. Sobre todo "packages") y luego ejecutar en la consola (en el directorio donde se encuentra 'setup.py') "python setup.py sdist"
+	- Esto crea en ese directorio:
+		- un archivo .egg-info
+		- una carpeta dist que contiene un archivo .tar.gz (ESTO ES EL PAQUETE. Ahora lo puedes enviar para que lo instalen)
+	
+
+
+
+
+
+
+
+
+
+
+
 
 
 
