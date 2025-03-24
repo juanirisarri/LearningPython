@@ -1,7 +1,278 @@
 
 ----------------------------------------------------------------------------------------
-HELP: GENERAL PYTHON
+HELP: NUMPY
 ----------------------------------------------------------------------------------------
 Author: JUAN IRISARRI REMÓN
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
+
+
+ It will help us to think of all data fundamentally as arrays of numbers
+ NumPy == Numerical Python
+ NumPy arrays are like Python’s lists, but NumPy arrays provide much more efficient storage and data operations as the arrays grow larger in size
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+NUMPY INSTALLATION:
+----------------------------------------------------------------------------------------
+ pip install numpy
+ To check the correct installation: print(np.__version__)
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+UNDERSTANDING DATA TYPES IN PYTHON
+----------------------------------------------------------------------------------------
+ This section outlines and contrasts how arrays of data are handled in the Python language itself, and how NumPy improves on this.
+ Fixed-type NumPy-style arrays lack the flexibility of the Python Lists, but are much more efficient for storing and manipulating data.
+ Numpy arrays must contain ONLY ONE TYPE of elements (si contiene un str todo lo demás lo considerá como str)
+ If you attempt to insert a floating-point value to an integer array, the value will be silently truncated
+
+
+ NumPy Standard Data Types: (para ver todos ir al libro página 41)
+	- 'bool_'  	-> Boolean
+	- 'int_'	-> Default integer type (normally 'int64' or 'int32')
+	- 'float_'	-> Shorthand for 'float64'
+	- 'complex_'	-> Shorthand for 'complex128'
+
+
+
+ Creating array from list:
+	Ex: myArray1 = np.array([1, 3, 5 , 2])
+	Ex: myArray2 = np.array(myList) 
+
+
+ To explicitly set the data type: dtype
+ 	Ex: myArrayWithType = np.array(myList, dtype='float32')
+	Ex: myArrayWithType = np.array(myList, dtype= np.int16)
+
+
+ Creating array with numpy methods:
+
+	np.zeros( (1,10), dtype=int) 	# Create a length-10 integer array filled with zeros:
+	np.eye(3)			# Create a 3x3 identity matrix
+	np.ones( (3,5), dtype=float )	# Create a 3x5 floating-point array filled with 1:
+	np.full( (3,5) , 3.14 )		# Create a 3x5 array filled with 3.14
+	
+	np.arange(0, 20, 2) 		# Create an array filled with a linear sequence: Start at 0, end at 20 (not included), step: 2
+	np.linspace(0, 1, 5)		# Create an array of five values evenly spaced between 0 and 1		
+	
+	np.random.random( (3,3) )		# Create a 3x3 array of UNIFORMLY distributed (random values between 0 and 1)
+	np.random.normal( 0, 1, (3,3) ) 	# Create a 3x3 array of NORMALLY distributed random values (mean=0 and std=1)
+	np.random.randint( 0, 10, (3,3) )	# Create a 3x3 array of random integers in the interval [0, 10)
+
+	np.empty(3)			# Create an uninitialized array of three integers (values will be whatever happens to already exist at that memory location)
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+THE BASICS OF NUMPY ARRAYS
+----------------------------------------------------------------------------------------
+
+
+NumPy Array Attributes:
+
+ ndim:     number of dimensions
+ shape:    size of each dimension
+ size:     total number of elements in the array
+ dtype:    the data type of the array
+ itemsize: lists the size (in bytes) of each array element
+ nbytes:   lists the total size (in bytes) of the array
+	
+	Ex: print( "x3 shape: ", x3.shape )
+
+
+
+
+
+
+Numpy Array Indexing: (con corchetes)
+ Ex: print( x1[4] )
+ Ex: print( x2[2,-1] )
+ Ex: x2[0,2] = 99 
+
+ 
+
+
+
+
+Numpy Array slicing: access a slice of an array
+
+ x[start:stop:step]		-> si se omiten:: start=0, stop=-1, step=1 
+ x[:5] 	# first five elements
+ x[5:] 	# elements after index 5 (including index 5)
+ x[4:7] # middle subarray (step=1)
+ x[::2] # every other element (step=2 y recorres todo empezando en index=0)
+ x[1::2] # every other element (step=2 y recorres todo empezando en index=1)
+
+ If step<0  ->  start and stop are swapped
+
+ x2[:, 0]   ->  every row,  first column  (devuelve un array 1D == vector fila)
+ x2[1, :]   ->  second row, every column  (devuelve un array 1D == vector fila) 
+ x2[1]      -> # equivalent to x2[1, :]   (devuelve un array 1D == vector fila)
+
+
+Subarrays as no-copy views:
+ array slices are views rather than copies of the array data
+ Es decir, si defino x2_sub = x2[:2, :2] y modifico x2_sub, también se modifica x2 !!!
+
+
+
+
+Copies of arrays:
+ x2_sub_copy = x2[:2, :2].copy()  # si lo modifico no modifico x2
+
+
+
+
+
+Reshaping of Arrays:
+ También genera views pero no copias !!
+ x.reshape( (3, 3) )    # Transforma x en un matriz 3x3
+ x[np.newaxis, :]       # Crea un vector fila o columna pero 2D
+
+
+
+
+
+
+Array Concatenation: combine multiple arrays into one
+
+ misma dimension -> concatenate()
+ dist  dimension -> vstack, hstack
+
+ np.concatenate([x, y])
+  EX: M1 = np.concatenate([ grid1, grid2 ], axis=0 )  #(si no se pone axis: axis=0)  # axis = 0 -> añade filas (mantiene el num de colum)
+  EX: M2 = np.concatenate([ grid1, grid2 ], axis=1 )     	           		# axis = 1 -> añade colum (mantiene el num de filas)
+
+  EX: V1 = np.vstack([x,grid1])     # Vertical stack (x arriba)   (x mismo num de colum que grid1)
+  EX: H1 = np.hstack([y,grid2])     # Horizontal stack (y izda)   (y mismo num de filas que grid2)
+
+
+
+
+
+Array Splitting: split a single array into multiple
+
+ np.split(x, [sp1, sp2])       spi == index of the split point i 
+ np.hsplit( grid, [sp1 sp2] )
+ np.vsplit( grid, [sp1 sp2] ) 
+  
+  EX: x1,x2,x3    = np.split(x,[3,5])        # x1 goes from index=0 to index=3 (not included) 
+  EX: left,right  = np.hsplit( grid, [2] ) 
+  EX: upper,lower = np.vsplit(grid, [2])
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+COMPUTATION ON NUMPY ARRAYS: UNIVERSAL FUNCTIONS
+----------------------------------------------------------------------------------------
+
+En este capítulo se demuesta que utilizar funciones vectoriales (como 1.0/big_array [se hace la división componente a componente] ) 
+es mucho mucho más rápido que utilizar bucles anidados para recorrer los np.arrays [en un ejemplo es 500 veces más rápido]
+
+ EX: operation = vector1/vector2  # componente a componente (como Matlab) 
+
+
+Operaciones interesantes:
+
+	vector%3       # devuelve el residuo de x1/3
+	vector**2      # devuelve el vector al cuadrado (componente a componente)
+	vector//2      # devuelve la división entera (redondea hacia abajo)
+	abs(vector)    # devuelve el valor absoluto
+	1j*vector      # devuelve el vector multiplicado por la unidad imaginaria	
+
+
+
+En realidad estas operaciones son versiones comprimidas de las funciones de numpy:
+ np.add()
+ np.substarct()
+ np.negative()
+ np.multiply()
+ np.divide()
+ np.floor_divide()
+ np.power()
+ np.mod()
+ np.absolute == np.abs()
+
+
+
+Otras operaciones importantes que no tienen version comprimida son:
+ 
+ np.sin(a)
+ np.cos(a)
+ np.tan(a)
+ np.arcsin(x)
+ np.arccos(x)
+ np.arctan(x)
+ 
+ np.exp(x)	  # e^x	
+ np.power(3,x)    # 3^x
+ np.log(x)        # ln(x)
+ np.log2(x)
+ np.log10(x)
+
+
+
+
+Para especificar el output (en menos líneas):
+ 
+ np.multiply(x, 10, out=y)  [y debe estar inicializado]
+
+
+
+
+Aggregates:
+ np.add.reduce(x)   		->	sum of all elements 
+ np.multiply.reduce(x)		->	product of all elements
+ np.add.accumulate(x)		->	sum of all elements (store all the intermediate results)
+ np.multiply.accumulate(x)	->	product of all elements (store all the intermediate results)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
