@@ -1,5 +1,6 @@
 
 ----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 HELP: NUMPY
 ----------------------------------------------------------------------------------------
 Author: JUAN IRISARRI REMÓN
@@ -251,6 +252,229 @@ Aggregates:
  np.multiply.reduce(x)		->	product of all elements
  np.add.accumulate(x)		->	sum of all elements (store all the intermediate results)
  np.multiply.accumulate(x)	->	product of all elements (store all the intermediate results)
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+AGGREGATIONS: MIN, MAX AND EVERYTHING IN BETWEEN
+----------------------------------------------------------------------------------------
+
+Algunas de estas funciones existen en Python y hacen lo mismo en algunos casos. Sin embargo, aun
+cuando hagan lo mismo se recomienda usar la versión de numpy pues es mucho más eficiente.
+
+
+ np.sum(L)          ||  L.sum()  	 -> suma todos los elementos del array (no siempre hace lo mismo que sum(L))
+ np.sum(M, axis=0)  ||  M.sum(axis=0)    -> suma todos los elementos de cada columna
+ np.sum(M, axis=1)  ||  M.sum(axis=1)  	 -> suma todos los elementos de cada fila
+ 
+ np.prod(Q)   	    ||  Q.prod()         -> producto de los elementos del array
+ np.prod(Q,axis=1)  ||  Q.prod(axis=1) 	 -> producto de los elementos de cada fila del array
+
+ np.max(L) 	    || L.max()
+ np.min(L)          || L.min()
+ np.max(L,axis=0)   || M.max(axis=0) 	-> máximo de cada columna
+ np.min(L,axis=1)   || M.min(axis=1) 	-> mínimo de cada flia
+ 
+ np.argmin(L)  ||  L.argmin() 		-> índice del mínimo
+ np.argmax(L)  ||  L.argmax() 		-> índice del máximo
+
+
+ N.mean()		-> media de N
+ np.mean(N,axis=1)	-> media de las filas de N
+ np.std(N) 		-> std de N
+ N.std(axis=1)		-> std de las filas de N
+ N.var()		-> varianza de N (=std^2)
+ np.var(N,axis=1)	-> varianza de las filas de N
+ np.median(N)		-> mediana de N
+
+
+ np.any( cond )   -> devuelve 'True' si algún elemento es 'True'
+ cond.all()       -> devuelve 'True' si todos los elementos son 'True'
+
+
+ OJO: Existen versiones de estas funciones para cuando hay un array que puede tener NaN en
+ su interior. Lo que hace es ignorar estos NaN.
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+COMPUTATION ON ARRAYS: BROADCASTING
+----------------------------------------------------------------------------------------
+Broadcasting is simply a set of rules for applying binary ufuncs (addition, subtraction, multiplication,
+etc.) on arrays of different sizes.
+
+
+ 1) arrays of the same shape: binary operations are performed on an element-by-element basis
+ 2) arrays of different shape: they are both stretched to match a common shape
+ (this extra memory is not actually allocated in the course of the operation, but it can be useful conceptually)
+ 3) Hay reglas que explican como se aumentan los arrays 
+	(En el libro esto está bien explicado y ponen ejemplos (pág 66))
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+COMPARISONS, MASKS AND BOOLEAN LOGIC 
+----------------------------------------------------------------------------------------
+
+Ex:
+ out = (vector <= 3)  	      ||  out = np.less(x,3)   			 # out: [ True  True  False  False  False]
+ out = (vector1 == vector2)   ||  out = np.equal(vector1,vector2)        # out: [ False  True  False  True  False]
+
+ == || np.equal
+ != || np.not_equal
+ <  || np.less
+ <= || np.less_equal
+ >  || np.greater
+ >= || np.greater_equal
+
+
+
+ np.count_nonzero(vector)  	-> counts the number of 'True' in vector
+ np.sum(vector)  		-> counts the number of 'True' in vector
+ np.sum(vector, axis=0)		-> counts the number of 'True' in each column of vector
+
+ np.all(vector, axis=1)		-> 'True' if every element in row 1 is 'True'
+ np.any(vector)			-> 'True' if any element is 'True'
+
+
+
+ ((...) &  (...))   ->  'True' si se cumplen ambas
+ ((...) or (...))   ->  'True' si se cumple alguna
+ ((...) ^  (...))   ->  'True' si solo se cumple una
+ ~((...) or (...))  ->  'True' si no se cumple alguna  {~ invierte lo que va a continuación}
+
+
+ EX : print("Positive and greater than 1: ",  np.sum(  (x[1,:] > 0)   &   (np.abs(x[1,:])>1)   )  )
+
+
+OJO: One common point of confusion is the difference between the keywords 'and' and 'or' on one hand, and the
+operators '&' and '|' on the other hand. When would you use one versus the other? 'and' and 'or' is to asking 
+Python to treat the object as a single Boolean entity.
+
+
+
+
+ Masks: 
+	mask_pos = x[x>0]   # array 1D que guarda los elementos positivos de x por orden
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+FANCY INDEXING
+----------------------------------------------------------------------------------------
+
+Se puede definir un índice y usarlo para sacar una parte de un array:
+	ind = [0, -1]	
+	x[ind]
+
+
+El resultado (x[ind]) conservará la shape de 'ind' y no la original de 'x';
+	x = [7 3 8 6 6 2 7 1]		# array 1D
+	ind = [ [0, 1],[-2,-1] ]	# index 2D
+        x[ind] = [ [7 3], [7 1] ]	# array 2D
+
+
+Se puede combinar el 'fancy indexing' con el 'slicing':
+	x[:2, col_ind]
+
+
+Se puede combinar el 'fancy indexing' con una 'mask':
+	mask = np.array([ 1,0,1,0], dtype=bool)    # 1==True   (conserva los índices con 'True')
+	x[row_ind, mask]
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+SORTING ARRAYS
+----------------------------------------------------------------------------------------
+
+Numpy contains built-in sorting algorithms:
+
+	np.sort(x) || x.sort()  -> Ordena x de menor a mayor
+	np.argsort(x)		-> Devuelve los índices de 'x' ordenado de menor a mayor
+	
+	np.sort(x, axis=0))  	-> Ordena cada columna de menor a mayor
+	np.sort(x, axis=1))  	-> Ordena cada fila de menor a mayor
+	
+	
+	np.partition(x,K)	-> Ordena 'x' dejando los K valores más pequeños a la izda del array
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+STRUCTURED DATA:NUMPY'S STRUCTURED ARRAYS
+----------------------------------------------------------------------------------------
+
+While often our data can be well represented by a homogeneous array of values,
+sometimes this is not the case. Structured arrays and record arrays provide efficient
+storage for compound, heterogeneous data.
+
+ structured arrays == arrays with compound data types
+
+Son interasantes porque hay una unión entre las diferentes piezas de información que pueda
+contener un array 'data', como que Juan tiene 25 años (son informaciónes relacionadas). 
+
+For day-to-day use of structured data, the Pandas package is a much better choice
+
+
+
+
+
+
+
+
+
+
 
 
 
